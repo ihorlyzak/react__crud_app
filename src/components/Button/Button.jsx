@@ -1,6 +1,6 @@
 const Button = () => {
     
-    return <button>BATON</button>;
+    return <button>Test button</button>;
 };
 
 export { Button };
