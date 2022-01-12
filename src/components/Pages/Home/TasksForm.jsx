@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
 	Button,
 	Table,
@@ -13,14 +13,22 @@ import {
 } from "@mui/material";
 
 export const TasksForm = () => {
-    // change input value
+	// change input value
 	const [inputValue, setInputValue] = useState("");
+
 	const handleOnChange = (e) => {
 		setInputValue(e.target.value);
 	};
 
-    // add new task
-	const [tasksList, setTasksList] = useState(["Sleep all day"]);
+	// add new task & save in local storadge	
+	const [tasksList, setTasksList] = useState(
+		JSON.parse(localStorage.getItem("tasksList")) || [],
+	);
+
+	useEffect(() => {
+		localStorage.setItem("tasksList", JSON.stringify(tasksList));
+	}, [tasksList]);
+
 	const handleOnClick = () => {
 		setTasksList((currentArray) => [...currentArray, inputValue]);
 	};
@@ -70,7 +78,7 @@ export const TasksForm = () => {
 				<Table size="small" aria-label="simple table">
 					<TableHead>
 						<TableRow>
-							<TableCell>My tasks</TableCell>
+							<TableCell>My tasks:</TableCell>
 							<TableCell align="right">Actions</TableCell>
 						</TableRow>
 					</TableHead>

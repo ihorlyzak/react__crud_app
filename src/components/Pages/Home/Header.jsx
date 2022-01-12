@@ -13,7 +13,7 @@ export const Header = () => {
 			justifyContent="space-around"
 			alignItems="center"
 		>
-			<h2>Your simple to do</h2>
+			<h2>Simple to do app</h2>
 			<Button
 				size="large"
 				variant="text"

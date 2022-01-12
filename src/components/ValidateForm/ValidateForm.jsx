@@ -8,7 +8,7 @@ export const ValidateForm = (values) => {
 		values.username === database.username &&
 		values.password === database.password
 	) {
-		localStorage.setItem("isLoggedIn", "true");
+		localStorage.setItem("isLoggedIn", "true");		
 		window.location.pathname = "/home";
 	}
 };
