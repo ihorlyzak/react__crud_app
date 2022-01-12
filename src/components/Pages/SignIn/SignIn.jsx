@@ -1,6 +1,12 @@
-import { Container, Box, TextField, Button, Grid } from "@mui/material/";
+import { Container, Grid, Box, TextField, Button } from "@mui/material/";
+
+import { useForm } from "components/hooks/useForm";
+import { ErrorList } from "components/ErrorList";
 
 export const SignIn = () => {
+	const { handleFormChange, handleSubmit, loginValues, errorsList } =
+		useForm(ErrorList);
+
 	return (
 		<Container maxWidth="false">
 			<Grid
@@ -25,6 +31,7 @@ export const SignIn = () => {
 					}}
 				>
 					<h2>CRUD app sign in</h2>
+
 					<p
 						style={{
 							border: "1px solid #fff",
@@ -48,33 +55,41 @@ export const SignIn = () => {
 					>
 						<div>
 							<TextField
+								sx={{ mb: "5px" }}
 								id="outlined-basic "
 								label="Login "
 								variant="outlined"
 								size="small"
 								type="text"
 								name="username"
-								sx={{ mb: "5px" }}
+								value={loginValues.username}
+								onChange={handleFormChange}
 							/>
 						</div>
+						{errorsList.username && <p>{errorsList.username}</p>}
 
 						<div>
 							<TextField
+								sx={{ mb: "5px" }}
 								id="outlined-basic"
 								label="Password"
 								variant="outlined"
 								size="small"
 								type="password"
-								name="username"
-								sx={{ mb: "5px" }}
+								name="password"
+								value={loginValues.password}
+								onChange={handleFormChange}
 							/>
 						</div>
+						{errorsList.password && <p>{errorsList.password}</p>}
+
 						<Button
+							sx={{ border: "1px solid #bce0fd" }}
 							size="large"
 							variant="text"
 							type="submit"
 							color="success"
-							sx={{ border: "1px solid #bce0fd" }}
+							onClick={handleSubmit}
 						>
 							Sign in
 						</Button>
