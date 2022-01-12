@@ -4,8 +4,6 @@ export const Header = () => {
 	const handleLogout = () => {
 		localStorage.setItem("isLoggedIn", "false");		
 		window.location.pathname = "/";
-		// localStorage.clear();
-		// window.location.pathname = "/";
 	};
 
 	return (
