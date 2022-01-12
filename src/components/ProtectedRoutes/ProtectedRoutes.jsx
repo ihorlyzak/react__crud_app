@@ -1,14 +1,16 @@
-import { SignIn } from 'components/Pages/SignIn';
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
+
+
 const useAuth = () => {
     const user = { loggedIn: false }
     return user && user.loggedIn;
 }
+
 const ProtectedRoutes = () => {
     const isAuth = useAuth();
     return (
-        isAuth ? <Outlet /> : <SignIn />
+        isAuth ? <Outlet /> : <Navigate to="/" />
     )
 }
 
-export default ProtectedRoutes
+export default ProtectedRoutes;

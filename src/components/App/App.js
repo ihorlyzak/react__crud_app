@@ -14,7 +14,7 @@ function App() {
 			<div>
 				<ul>
 					<li>
-						<Link to="/signin">SignIn</Link>
+						<Link to="/">SignIn</Link>
 					</li>
 					<li>
 						<Link to="/home">Home</Link>
@@ -26,7 +26,7 @@ function App() {
 			</div>
 
 			<Routes>
-				<Route exact path="/signin" element={<SignIn />} />
+				<Route exact path="/" element={<SignIn />} />
 
 				<Route element={<ProtectedRoutes />}>
 					<Route exact path="/account" element={<Account />} />
