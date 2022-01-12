@@ -1,15 +1,37 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import { Button } from 'components/Button/Button';
+import { Home } from 'components/Pages/Home';
+import { SignIn } from 'components/Pages/SignIn';
+import { Account } from 'components/Pages/Account';
+import ProtectedRoutes from 'components/ProtectedRoutes/ProtectedRoutes';
 
 function App() {
 
 	return (
 		<BrowserRouter>
 
+			<div>
+				<ul>
+					<li>
+						<Link to="/signin">SignIn</Link>
+					</li>
+					<li>
+						<Link to="/home">Home</Link>
+					</li>
+					<li>
+						<Link to="/account">Account</Link>
+					</li>
+				</ul>
+			</div>
+
 			<Routes>
-				<Route exact path="/home" element={<Button />} />
+				<Route exact path="/signin" element={<SignIn />} />
+
+				<Route element={<ProtectedRoutes />}>
+					<Route exact path="/account" element={<Account />} />
+					<Route exact path="/home" element={<Home />} />
+				</Route>
 			</Routes>
 
 		</BrowserRouter>
