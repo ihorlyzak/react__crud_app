@@ -8,6 +8,3 @@ export const Home = () => {
         </div>
     )
 }
-
-
-
