@@ -1,11 +1,10 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProtectedRoutes from "components/ProtectedRoutes/ProtectedRoutes";
+import { ProtectedRoutes } from "components/ProtectedRoutes/ProtectedRoutes";
 
 import { Home } from "components/Pages/Home/Home";
 import { SignIn } from "components/Pages/SignIn";
 
-function App() {
+export const App = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -19,4 +18,3 @@ function App() {
 	);
 }
 
-export default App;

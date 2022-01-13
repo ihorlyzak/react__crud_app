@@ -23,9 +23,11 @@ export const TasksForm = () => {
 
     // add new task & save in local storage
     const [tasksList, setTasksList] = useTasksList();
-    
+
     const handleOnClick = () => {
-        setTasksList((currentArray) => [...currentArray, inputValue]);
+        if (inputValue.length) {
+            setTasksList((currentArray) => [...currentArray, inputValue]);            
+        }
     };
 
     return (

@@ -3,7 +3,7 @@ import { Button, Box } from "@mui/material/";
 export const Header = () => {
 	const handleLogout = () => {
 		localStorage.setItem("isLoggedIn", "false");		
-		window.location.pathname = "/";
+		window.location.pathname = "/";	
 	};
 
 	return (
