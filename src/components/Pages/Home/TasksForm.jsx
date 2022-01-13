@@ -37,22 +37,22 @@ export const TasksForm = () => {
 			setToggleSubmit(true); //show add button
 			setInputValue(""); //clear input
 			setEditItem(null); // get back to adding
-		} else if (inputValue.length) {
-			// add task
-
-			const inputData = {
-				id: new Date().getTime().toString(),
-				name: inputValue,
-			};
-			setTasksList((currentArray) => [...currentArray, inputData]);
-
-			setInputValue("");
+			return;
 		}
+
+		// add task
+		const inputData = {
+			id: new Date().getTime().toString(),
+			name: inputValue,
+		};
+		setTasksList((currentArray) => [...currentArray, inputData]);
+
+		setInputValue("");
 	};
 
 	// delete task
-	const handleOnDelete = (index) => {
-		const newTaskList = tasksList.filter((element) => index !== element.id);
+	const handleOnDelete = (id) => {
+		const newTaskList = tasksList.filter((element) => id !== element.id);
 
 		setTasksList(newTaskList);
 	};
@@ -77,7 +77,7 @@ export const TasksForm = () => {
 					margin: 1,
 					display: "flex",
 					justifyContent: "center",
-					alignItems: "center",                    
+					alignItems: "center",
 				}}
 			>
 				<div>

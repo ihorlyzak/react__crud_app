@@ -1,7 +1,7 @@
 import { Container, Grid, Box, TextField, Button } from "@mui/material/";
 
 import { useForm } from "hooks/useForm";
-import { ErrorList } from "components/ErrorList";
+import { ErrorList } from "helpers/ErrorList";
 
 export const SignIn = () => {
 	const { handleFormChange, handleSubmit, loginValues, errorsList } =
@@ -27,7 +27,7 @@ export const SignIn = () => {
 						alignItems: "center",
 						bgcolor: "#cfe8fc",
 						borderRadius: "15px",
-						border: "1px solid #bce0fd",
+						border: "1px solid #bce0fd",			
 					}}
 				>
 					<h2>CRUD app sign in</h2>
@@ -66,7 +66,7 @@ export const SignIn = () => {
 								onChange={handleFormChange}
 							/>
 						</div>
-						{errorsList.username && <p>{errorsList.username}</p>}
+						{errorsList.username && <p style={{color: "red"}}>{errorsList.username}</p>}
 
 						<div>
 							<TextField
@@ -81,7 +81,7 @@ export const SignIn = () => {
 								onChange={handleFormChange}
 							/>
 						</div>
-						{errorsList.password && <p>{errorsList.password}</p>}
+						{errorsList.password && <p style={{color: "red"}}>{errorsList.password}</p>}
 
 						<Button
 							sx={{ border: "1px solid #bce0fd" }}

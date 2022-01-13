@@ -2,7 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const useAuth = () => {
 	const user = {
-		isLoggedIn: localStorage.getItem("isLoggedIn"),		
+		isLoggedIn: localStorage.getItem("isLoggedIn"),
 	};
 	return user && user.isLoggedIn;
 };
@@ -12,5 +12,4 @@ const ProtectedRoutes = () => {
 	return isAuth ? <Outlet /> : <Navigate to="/" />;
 };
 
-// export default ProtectedRoutes;
-export {useAuth, ProtectedRoutes}
+export { useAuth, ProtectedRoutes };
